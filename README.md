@@ -30,10 +30,4 @@ CineLog, film tutkunlarının favori filmlerini takip edebileceği, yeni filmler
 - JWT ile kullanıcı kimlik doğrulama
 - TMDB API entegrasyonu
 
----
-
-## Kurulum
-
-### 1. Repo’yu klonla
-```bash
-git clone <repo-url>
+>
