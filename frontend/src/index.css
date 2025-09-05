@@ -1,0 +1,289 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles for CineLog */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #525252;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #737373;
+}
+
+/* Custom components */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+}
+
+.movie-card {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #2d2d2d;
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.movie-poster {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.movie-card:hover .movie-poster {
+    transform: scale(1.05);
+}
+
+.movie-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+}
+
+.movie-card:hover .movie-overlay {
+    opacity: 1;
+}
+
+/* Star rating component */
+.star-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    cursor: pointer;
+    color: #525252;
+    transition: color 0.2s ease;
+}
+
+.star:hover,
+.star.active {
+    color: #fbbf24;
+}
+
+.star.half {
+    color: #fbbf24;
+    opacity: 0.5;
+}
+
+/* Loading animation */
+.loading-spinner {
+    border: 3px solid #2d2d2d;
+    border-top: 3px solid #00C030;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Button styles */
+.btn-primary {
+    @apply bg-white hover:bg-gray-200 text-black font-medium py-2 px-4 rounded transition-colors duration-200;
+}
+
+.btn-secondary {
+    @apply bg-dark-300 hover:bg-dark-400 text-white font-medium py-2 px-4 rounded transition-colors duration-200;
+}
+
+.btn-outline {
+    @apply border border-dark-400 hover:border-white hover:text-white text-dark-600 font-medium py-2 px-4 rounded transition-colors duration-200;
+}
+
+/* Form styles */
+.form-input {
+    @apply w-full bg-dark-200 border border-dark-400 rounded px-3 py-2 text-white placeholder-dark-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200;
+}
+
+.form-label {
+    @apply block text-dark-700 font-medium mb-2;
+}
+
+/* Card styles */
+.card {
+    @apply bg-dark-200 border border-dark-300 rounded-lg p-4;
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    animation: slide-in 0.3s ease-out;
+}
+
+.toast.success {
+    background-color: #00C030;
+}
+
+.toast.error {
+    background-color: #ef4444;
+}
+
+.toast.info {
+    background-color: #3b82f6;
+}
+
+/* Custom utilities */
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.backdrop-filter {
+    backdrop-filter: blur(10px);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+
+/* yeni eklenenler: deneme*/
+/* Hero Section */
+.hero img {
+    transition: transform 0.5s ease;
+}
+
+.hero img:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    @apply bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-xl shadow-lg transition-all duration-300;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+/* Tabs */
+button.flex.items-center {
+    transition: all 0.3s ease;
+}
+
+button.flex.items-center:hover {
+    transform: scale(1.05);
+}
+
+/* Categories hover */
+button.px-4.py-2.rounded-2xl {
+    transition: all 0.3s ease;
+}
+
+button.px-4.py-2.rounded-2xl:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+header {
+    background-color: #111111;
+}
+
+header button {
+    transition: all 0.2s ease;
+}
+
+header button:hover {
+    transform: scale(1.05);
+    color: white;
+}
+
+/* Yeni eklenen hover efektleri linkler için */
+header div>div button {
+    color: #ccc;
+}
+
+header div>div button:hover {
+    color: white;
+}
+
+/* Header dropdown */
+header .relative div {
+    background-color: #1f1f1f;
+}
+
+header .relative div a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+header .relative div a:hover {
+    background-color: #333;
+    color: white;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
